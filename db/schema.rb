@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714014503) do
+ActiveRecord::Schema.define(version: 20160714225626) do
 
   create_table "locations", force: :cascade do |t|
     t.float    "latitude"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160714014503) do
     t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "occupied"
   end
 
   add_index "slots", ["location_id"], name: "index_slots_on_location_id"
