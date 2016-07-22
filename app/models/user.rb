@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :vehicles
+
+validates :first_name, acceptance: true, message: 'You must enter your First Name'
 end
