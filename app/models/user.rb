@@ -5,5 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :vehicles
 
-validates :first_name, acceptance: true, message: 'You must enter your First Name'
+	validates :first_name, presence: true, format: { with: /\A[a-zA-Z]+\z/,
+    message: "only allows letters" }
+	validates :last_name, presence: true, format: { with: /\A[a-zA-Z]+\z/,
+    message: "only allows letters" }
+	validates_date :birthdate, :on_or_before => lambda { Date.current }
 end
