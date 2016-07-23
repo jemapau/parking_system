@@ -49,3 +49,5 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 
+gem 'validates_timeliness', '~> 4.0'
+
