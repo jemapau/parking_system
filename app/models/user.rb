@@ -5,5 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :vehicles
 
-validates :first_name, acceptance: true, message: 'You must enter your First Name'
+	validates :email, presence: true, uniqueness: true
+	validates :first_name, presence: true, format: { with: /\A[a-zA-Z]+\z/,
+    message: "only allows letters" }
+	validates :first_name, presence: true, format: { with: /\A[a-zA-Z]+\z/,
+    message: "only allows letters" }
 end
