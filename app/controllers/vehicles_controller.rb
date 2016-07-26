@@ -1,3 +1,4 @@
+class VehiclesController < ApplicationController
 def new
 	@user = current_user
 	@vehicle = Vehicle.new
@@ -10,12 +11,13 @@ def create
 		flash[:success] = 'Vehicle registered successfully.'
 		redirect_to user_vehicles_path(current_user)
 	else
-		flash [:error] = @vehicle.errors.full_messages.join(',')
+		flash[:error] = @vehicle.errors.full_messages.join('.')
 		render 'new'
 	end
-	
 end
 
-def vehicle_params
-	params.require(:vehicle).permit(:user_id, :model, :year, :vin, :id)
+	def vehicle_params
+		params.require(:vehicle).permit(:user_id, :model, :year, :vin, :id)
+	end
+	private :vehicle_params
 end
