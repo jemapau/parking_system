@@ -1,0 +1,20 @@
+<h1>Locaciones</h1>
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<th>Modelo</th>
+				<th>Vin</th>
+				<th>Year</th>
+			</thead>
+			<tbody>
+			<% @locations.each do |location| %>
+				<tr>
+					<td><%= location.name %></td>
+					<td><%= location.address %></td>
+					<td><%= location.description %></td>
+					<td><%= location.max_slots %></td>
+				</tr>
+			<%end%>
+			</tbody>
+		</table>
+	</div>
