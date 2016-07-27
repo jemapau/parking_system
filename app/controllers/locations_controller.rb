@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
 	def index
 		@locations = Location.all
-		flash[:error] = 'No locations registered' if.@Locations.empty?
+		flash[:error] = 'No locations registered' if.@locations.empty?
 	end
 	def new
 		@user = current_user
@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
 		@location = Location.new(location_params)
 		@location.user_id = current_user.id
 		if @location.save
-			flash[:success] = 'Vehicle registered successfully.'
+			flash[:success] = 'Location registered successfully.'
 			redirect_to user_locations_path(current_user)
 		else
 			flash[:error] = @location.errors.full_messages.join('.')

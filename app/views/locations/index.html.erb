@@ -2,19 +2,25 @@
 	<div class="table-responsive">
 		<table class="table">
 			<thead>
-				<th>Modelo</th>
-				<th>Vin</th>
-				<th>Year</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Address</th>
+				<th>Location</th>
 			</thead>
 			<tbody>
 			<% @locations.each do |location| %>
 				<tr>
 					<td><%= location.name %></td>
-					<td><%= location.address %></td>
 					<td><%= location.description %></td>
-					<td><%= location.max_slots %></td>
+					<td><%= location.address %></td>
+					<% unless location.latitude.nil? && location.longitude.nil? %>
+				      <td>
+				        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
+				      </td>
+				    <%end%>
 				</tr>
 			<%end%>
 			</tbody>
 		</table>
 	</div>
+
