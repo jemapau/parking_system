@@ -1,0 +1,33 @@
+<h2>Register a new location</h2>
+<h3>New Location</h3>
+<%= form_for @location, url: {action: 'create'} do |form|%>
+  <div class="row">
+    <div class="form-group">
+    <%= form.label :name, for:'name' %><br />
+    </div>
+    <div class="form-group">
+     <%= form.text_field :name, placeholder: "Name", autofocus: true, required: true, class: 'form-control'%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <%= form.label :description %><br />
+    </div>
+    <div class="form-group">
+    <%= form.text_field :description, required: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+    <%= form.label :address %><br />
+    </div>
+    <div class="form-group">
+    <%= form.text_field :address, placeholder: "Address", autofocus: true, required: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Register Location" %><%= link_to "Cancel", new_location_path(@user) %>
+  </div>
+<% end %>
