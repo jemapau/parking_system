@@ -29,6 +29,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Register Vehicle" %><%= link_to "Cancel", user_vehicles_path(@user) %>
+    <%= form.submit "Register Vehicle", class: 'btn btn-success' %>   <%= link_to "Cancel", user_vehicles_path(@user), class: 'btn btn-danger' %>
   </div>
 <% end %>
