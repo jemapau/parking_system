@@ -4,6 +4,7 @@
 			<thead>
 				<th>Name</th>
 				<th>Description</th>
+				<th>Max slots</th>
 				<th>Address</th>
 				<th>Location</th>
 			</thead>
@@ -12,8 +13,9 @@
 				<tr>
 					<td><%= location.name %></td>
 					<td><%= location.description %></td>
+					<td><%= location.max_slots %></td>
 					<td><%= location.address %></td>
-					<% unless location.latitude.nil? && location.longitude.nil? %>
+				    <% unless location.latitude.nil? && location.longitude.nil? %>
 				      <td>
 				        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
 				      </td>
@@ -23,4 +25,7 @@
 			</tbody>
 		</table>
 	</div>
+<div class="form-group">
+	<%= link_to "Add Location", new_location_path(@user) , class: 'btn btn-success'%>
+</div>
 
