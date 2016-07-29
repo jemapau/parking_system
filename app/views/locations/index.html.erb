@@ -15,11 +15,11 @@
 					<td><%= location.description %></td>
 					<td><%= location.max_slots %></td>
 					<td><%= location.address %></td>
-				    <% unless location.latitude.nil? && location.longitude.nil? %>
-				      <td>
-				        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
-				      </td>
-				    <%end%>
+	 				<% unless location.latitude.nil? && location.longitude.nil? %>
+	                  <td>
+	                    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
+	                  </td>
+	                <%end%>
 				</tr>
 			<%end%>
 			</tbody>
