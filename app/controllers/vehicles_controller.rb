@@ -14,6 +14,7 @@ def create
 	@vehicle = Vehicle.new(vehicle_params)
 	@vehicle.user_id = current_user.id
 	if @vehicle.save
+		VehicleMailer.new_vehicle_email(current_user).deliver_now
 		flash[:success] = 'Vehicle registered successfully.'
 		redirect_to user_vehicles_path(current_user)
 	else
