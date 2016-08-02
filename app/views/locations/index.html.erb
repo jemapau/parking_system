@@ -7,6 +7,7 @@
 				<th>Max slots</th>
 				<th>Address</th>
 				<th>Location</th>
+				<th><%=%></th>
 			</thead>
 			<tbody>
 			<% @locations.each do |location| %>
@@ -20,6 +21,16 @@
 	                    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
 	                  </td>
 	                <%end%>
+	                <td>
+	                	<%= link_to "Edit",
+	                        edit_location_path(location),
+	                        class: 'btn btn-default' %>
+		                <%= link_to "Delete",
+	                        user_vehicle_path(location),
+	                        method: 'delete',
+	                        class: 'btn btn-danger',
+	                        data: {confirm: "Are you sure?"} %>	
+	                </td>
 				</tr>
 			<%end%>
 			</tbody>
